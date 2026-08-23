@@ -1,0 +1,23 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+
+    user: "2001:2000"
+
+    group_add:
+      - "992"
+
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128
+
+    ports:
+      - "8096:8096/tcp"
+      - "7359:7359/udp"
+
+    volumes:
+      - /srv/docker/jellyfin/config:/config
+      - /srv/docker/jellyfin/cache:/cache
+      - /srv/data/media:/media:ro
+
+    restart: unless-stopped
