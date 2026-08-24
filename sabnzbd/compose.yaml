@@ -1,0 +1,19 @@
+services:
+  sabnzbd:
+    image: lscr.io/linuxserver/sabnzbd:latest
+    container_name: sabnzbd
+
+    environment:
+      - PUID=2004
+      - PGID=2000
+      - TZ=Europe/Amsterdam
+      - UMASK=002
+
+    volumes:
+      - /srv/docker/sabnzbd:/config
+      - /srv/data/downloads/usenet:/data/downloads/usenet
+
+    ports:
+      - "8080:8080/tcp"
+
+    restart: unless-stopped
