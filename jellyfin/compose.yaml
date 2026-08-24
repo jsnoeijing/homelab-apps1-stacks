@@ -18,6 +18,6 @@ services:
     volumes:
       - /srv/docker/jellyfin/config:/config
       - /srv/docker/jellyfin/cache:/cache
-      - /srv/data/media:/media:ro
+      - /srv/data/media:/data/media:ro
 
     restart: unless-stopped
