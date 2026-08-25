@@ -1,0 +1,19 @@
+services:
+  lidarr:
+    image: lscr.io/linuxserver/lidarr:latest
+    container_name: lidarr
+
+    environment:
+      - PUID=2008
+      - PGID=2000
+      - TZ=Europe/Amsterdam
+      - UMASK=002
+
+    volumes:
+      - /srv/docker/lidarr:/config
+      - /srv/data:/data
+
+    ports:
+      - "8686:8686/tcp"
+
+    restart: unless-stopped
