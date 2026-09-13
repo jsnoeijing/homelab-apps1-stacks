@@ -14,4 +14,12 @@ services:
     ports:
       - "9696:9696/tcp"
 
+    networks:
+      - default
+      - media
+
     restart: unless-stopped
+
+networks:
+  media:
+    external: true

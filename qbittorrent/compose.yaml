@@ -20,4 +20,12 @@ services:
       - "6881:6881/tcp"
       - "6881:6881/udp"
 
+    networks:
+      - default
+      - media
+
     restart: unless-stopped
+
+networks:
+  media:
+    external: true

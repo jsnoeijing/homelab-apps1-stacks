@@ -20,4 +20,12 @@ services:
       - /srv/docker/jellyfin/cache:/cache
       - /srv/data/media:/data/media:ro
 
+    networks:
+      - default
+      - media
+
     restart: unless-stopped
+
+networks:
+  media:
+    external: true

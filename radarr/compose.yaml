@@ -16,4 +16,12 @@ services:
     ports:
       - "7878:7878/tcp"
 
+    networks:
+      - default
+      - media
+
     restart: unless-stopped
+
+networks:
+  media:
+    external: true
