@@ -6,7 +6,7 @@ services:
     user: "2001:2000"
 
     group_add:
-      - "992"
+      - "${RENDER_GID:?RENDER_GID must match /dev/dri/renderD128 on apps1}"
 
     devices:
       - /dev/dri/renderD128:/dev/dri/renderD128
