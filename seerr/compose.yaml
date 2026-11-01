@@ -9,7 +9,7 @@ services:
       - LOG_LEVEL=info
 
     ports:
-      - "127.0.0.1:5055:5055/tcp"
+      - "5055:5055/tcp"
 
     volumes:
       - /srv/docker/seerr:/app/config
