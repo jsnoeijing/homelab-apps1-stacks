@@ -1,0 +1,25 @@
+services:
+  mealie:
+    image: ghcr.io/mealie-recipes/mealie:v3.30.0
+    container_name: mealie
+    init: true
+    restart: unless-stopped
+
+    ports:
+      - "9925:9000/tcp"
+
+    environment:
+      TZ: Europe/Amsterdam
+      BASE_URL: https://mealie.snovam.nl
+      ALLOW_SIGNUP: "false"
+      DB_ENGINE: sqlite
+      PUID: "911"
+      PGID: "911"
+
+    volumes:
+      - /srv/docker/mealie:/app/data
+
+    deploy:
+      resources:
+        limits:
+          memory: 1000M
